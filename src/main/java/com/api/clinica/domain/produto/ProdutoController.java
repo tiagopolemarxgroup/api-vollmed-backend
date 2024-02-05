@@ -1,4 +1,4 @@
-package com.api.clinica.produto;
+package com.api.clinica.domain.produto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

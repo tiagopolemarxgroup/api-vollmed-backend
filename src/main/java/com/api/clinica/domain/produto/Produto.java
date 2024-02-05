@@ -1,4 +1,4 @@
-package com.api.clinica.produto;
+package com.api.clinica.domain.produto;
 
 import jakarta.persistence.*;
 import lombok.Data;

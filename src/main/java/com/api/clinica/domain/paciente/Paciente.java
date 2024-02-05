@@ -1,6 +1,6 @@
-package com.api.clinica.paciente;
+package com.api.clinica.domain.paciente;
 
-import com.api.clinica.endereco.Endereco;
+import com.api.clinica.domain.endereco.Endereco;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -24,8 +24,10 @@ public class Paciente {
     private String cpf;
     @Embedded
     private Endereco endereco;
+    private Boolean ativo;
 
     public Paciente(DadosCadastroPaciente dados){
+        this.ativo = true;
         this.nome = dados.nome();
         this.email = dados.email();
         this.telefone = dados.telefone();
@@ -33,4 +35,22 @@ public class Paciente {
         this.endereco = new Endereco(dados.endereco());
     }
 
+    public void AtualizarPaciente(AtualizarDadosPacienteDto dto){
+        if(dto.nome() != null){
+            this.nome = dto.nome();
+        }
+        if(dto.email() != null){
+            this.email = dto.email();
+        }
+        if(dto.telefone() != null){
+            this.telefone = dto.telefone();
+        }
+        if(dto.endereco() != null){
+            this.endereco.atualizaInformacoes(dto.endereco());
+        }
+    }
+
+    public void excluir() {
+        this.ativo = false;
+    }
 }

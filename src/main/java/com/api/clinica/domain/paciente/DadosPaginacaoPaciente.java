@@ -1,4 +1,4 @@
-package com.api.clinica.paciente;
+package com.api.clinica.domain.paciente;
 
 public record DadosPaginacaoPaciente(String nome, String email, String telefone, String cpf) {
     public DadosPaginacaoPaciente(Paciente paciente){
