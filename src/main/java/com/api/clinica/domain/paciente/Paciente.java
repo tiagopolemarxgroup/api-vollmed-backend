@@ -35,6 +35,13 @@ public class Paciente {
         this.endereco = new Endereco(dados.endereco());
     }
 
+    public Paciente(String nome, String email, String cpf) {
+        this.ativo = true;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+    }
+
     public void AtualizarPaciente(AtualizarDadosPacienteDto dto){
         if(dto.nome() != null){
             this.nome = dto.nome();
