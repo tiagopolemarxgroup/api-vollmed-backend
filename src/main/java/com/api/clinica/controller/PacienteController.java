@@ -1,6 +1,7 @@
 package com.api.clinica.controller;
 
 import com.api.clinica.domain.paciente.*;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -13,6 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.util.List;
 
+@SecurityRequirement(name = "bearer-key")
 @RestController
 @RequestMapping("/pacientes")
 public class PacienteController {
